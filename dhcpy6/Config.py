@@ -305,6 +305,8 @@ class Config(object):
         self.STORE_MYSQL_DB = "dhcpy6d"
         self.STORE_MYSQL_USER = "user"
         self.STORE_MYSQL_PASSWORD = "password"
+        self.STORE_MYSQL_PREFIX = ""
+        self.STORE_MYSQL_SUFFIX = ""
         
         self.STORE_SQLITE_CONFIG = "config.sqlite"
         self.STORE_SQLITE_VOLATILE = "volatile.sqlite"

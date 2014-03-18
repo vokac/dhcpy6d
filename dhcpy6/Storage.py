@@ -661,6 +661,10 @@ class MySQL(Store):
     def __init__(self, cfg, queryqueue, answerqueue, Transactions, CollectedMACs):
         Store.__init__(self, cfg, queryqueue, answerqueue, Transactions, CollectedMACs)
 
+        self.table_leases = "%sleases%s" % (self.cfg.STORE_MYSQL_PREFIX, self.cfg.STORE_MYSQL_SUFFIX)
+        self.table_macs_llips = "%smacs_llips%s" % (self.cfg.STORE_MYSQL_PREFIX, self.cfg.STORE_MYSQL_SUFFIX)
+        self.table_hosts = "%shosts%s" % (self.cfg.STORE_MYSQL_PREFIX, self.cfg.STORE_MYSQL_SUFFIX)
+
         self.connection = None
 
         try:
