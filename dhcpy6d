@@ -1034,6 +1034,7 @@ class UDPMulticastIPv6(SocketServer.UnixDatagramServer):
 
             # join multicast group
             self.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_JOIN_GROUP, mgroup)
+            log.info("Listening on interface %s." % (i))
 
         # bind socket to server address
         self.socket.bind(self.server_address)
@@ -1554,8 +1555,12 @@ class Handler(SocketServer.DatagramRequestHandler):
 
 if __name__ == "__main__":
 
-    log.info("Starting dhcpy6d daemon...")
+    log.info("Starting dhcpy6d daemon (PID: %i)" % os.getpid())
     log.info("Server DUID: %s" % (cfg.SERVERDUID))
+    if log.getEffectiveLevel() <= logging.DEBUG:
+        for k in sorted(dir(cfg)):
+            if k.startswith('_'): continue
+            log.debug("Config[%s]: %s" % (k, getattr(cfg, k)))
 
     # configure SocketServer
     UDPMulticastIPv6.address_family = socket.AF_INET6
