@@ -362,10 +362,10 @@ class Config(object):
         self.ADDRESSES["default"] = ConfigAddress(ia_type="na",\
                                                    prefix_length="64",\
                                                    category="mac",\
-                                                   pattern="fdef::$mac$",\
+                                                   pattern="fe80::$mac$",\
                                                    aclass="default",\
                                                    atype="default",\
-                                                   prototype="fdef0000000000000000XXXXXXXXXXXX")
+                                                   prototype="fe800000000000000000XXXXXXXXXXXX")
         
         self.CLASSES["default"] = Class()
         self.CLASSES["default"].ADDRESSES.append("default")
@@ -376,10 +376,10 @@ class Config(object):
         self.ADDRESSES["fixed"] = ConfigAddress(ia_type="na",\
                                                    prefix_length="64",\
                                                    category="fixed",\
-                                                   pattern="fdef0000000000000000000000000001",\
+                                                   pattern="fe800000000000000000000000000001",\
                                                    aclass="default",\
                                                    atype="fixed",
-                                                   prototype="fdef0000000000000000000000000000")              
+                                                   prototype="fe800000000000000000000000000000")
         
         # config file from command line
         # default config file and cli values
