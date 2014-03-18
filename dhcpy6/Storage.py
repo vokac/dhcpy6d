@@ -631,8 +631,9 @@ class ClientConfig(object):
         # MACs
         self.MAC = mac
         # fixed addresses
+        self.ADDRESS = list()
         if address:
-            addresses = ListifyOption(self.ADDRESS)
+            addresses = ListifyOption(address)
             for a in addresses:
                 self.ADDRESS.append(DecompressIP6(a))
         else:
