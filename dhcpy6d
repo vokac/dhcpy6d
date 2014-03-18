@@ -29,7 +29,7 @@ import grp
 # access /usr/share/pyshared on Debian
 # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=715010
 if platform.dist()[0].lower() == "debian":
-    sys.path[0:0] = ["/usr/share/pyshared"]
+    sys.path.append("/usr/share/pyshared")
 
 from dhcpy6.Helpers import *
 from dhcpy6.Constants import *
